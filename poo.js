@@ -35,3 +35,31 @@ const piza = new Pizza("gruesa", "Pequeña", ["pepperoni", "queso"]);
 console.log(piza.preparar()); + (piza.hornear()); +  (piza.empacar());
 
 
+class Combos extends Pizza {
+    constructor(combo, cantidad, masa, tamaño, ingredientes, bebida, postre) {
+        super(masa, tamaño, ingredientes);
+        this.combo = combo;
+        this.cantidad = cantidad;
+        this.bebida = bebida; 
+        this.postre = postre;
+
+
+    }
+
+    elegircombo() {
+    this.preparar();
+    this.hornear();
+    this.empacar();
+    console.log(
+       `Has elegido al combo ${this.combo} pizzas tamaño ${this.tamaño}con masa ${this.masa} y los siguientes ingredientes ${this.ingredientes}`
+    )  
+    
+    return this;
+
+       
+}
+
+};
+
+const comboFamiliar  = new Combos("Familiar", 4, "grande", "delgada",["jamon", "piña", "queso"], "refresco", "helado");
+console.log(comboFamiliar.elegircombo());
